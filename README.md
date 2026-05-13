@@ -13,7 +13,7 @@
 <!-- Social badges -->
 <p align="center">
   <a href="https://youtube.com/@codewithkael" target="_blank">
-    <img src="https://img.shields.io/youtube/channel/subscribers/UCCetBbh8W5XklVbAQtEy8Lg?style=for-the-badge&logo=youtube&logoColor=white&label=YouTube&color=FF0000" />
+    <img src="https://img.shields.io/badge/YouTube-%40CodeWithKael-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
   </a>
   &nbsp;
   <a href="https://www.linkedin.com/in/masoud-sarabadani/" target="_blank">
