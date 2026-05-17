@@ -169,11 +169,18 @@
 <!-- Mini Game -->
 ### 🎮 Play: Neon District Driver
 
-> A top-down open-world city game built with HTML5 Canvas — steal cars, complete missions, evade police, run people over, and dominate the neon city.
+> Top-down open-world city game — steal cars, complete missions, evade police & dominate the neon city. Built with pure HTML5 Canvas.
+
+<!-- Game preview image linking to live game -->
+<p align="center">
+  <a href="https://codewithkael.github.io/codewithkael/game/" target="_blank">
+    <img width="100%" src="https://raw.githubusercontent.com/codewithkael/codewithkael/main/game/preview.svg" alt="Neon District Driver - Click to Play" />
+  </a>
+</p>
 
 <p align="center">
-  <a href="https://raw.githack.com/codewithkael/codewithkael/main/game/index.html" target="_blank">
-    <img src="https://img.shields.io/badge/%F0%9F%9A%97%20Play%20Full%20Screen-Launch%20Game-1bd8c3?style=for-the-badge&labelColor=0d1117" />
+  <a href="https://codewithkael.github.io/codewithkael/game/" target="_blank">
+    <img src="https://img.shields.io/badge/%F0%9F%9A%97%20Play%20Full%20Screen-Launch%20Game%20on%20GitHub%20Pages-1bd8c3?style=for-the-badge&labelColor=0d1117" />
   </a>
 </p>
 
