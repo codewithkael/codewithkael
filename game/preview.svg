@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#05090e"/>
+      <stop offset="100%" stop-color="#0a1117"/>
+    </linearGradient>
+    <linearGradient id="road" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#141d24"/>
+      <stop offset="100%" stop-color="#0d1519"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="420" fill="url(#bg)"/>
+
+  <!-- Road grid -->
+  <rect x="0" y="140" width="800" height="110" fill="url(#road)"/>
+  <rect x="240" y="0" width="110" height="420" fill="url(#road)"/>
+  <rect x="460" y="0" width="110" height="420" fill="url(#road)"/>
+
+  <!-- Road centre dashes -->
+  <line x1="0" y1="195" x2="800" y2="195" stroke="rgba(255,200,102,.55)" stroke-width="2" stroke-dasharray="26,20"/>
+  <line x1="295" y1="0" x2="295" y2="420" stroke="rgba(255,200,102,.55)" stroke-width="2" stroke-dasharray="26,20"/>
+  <line x1="515" y1="0" x2="515" y2="420" stroke="rgba(255,200,102,.55)" stroke-width="2" stroke-dasharray="26,20"/>
+
+  <!-- Buildings -->
+  <!-- Building 1 (tall, glowing) -->
+  <rect x="30" y="50" width="180" height="68" rx="8" fill="rgba(14,20,26,.97)"/>
+  <rect x="30" y="22" width="180" height="68" rx="8" fill="rgba(28,42,50,.98)" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+  <rect x="48" y="30" width="13" height="9" fill="rgba(255,200,102,.22)"/>
+  <rect x="76" y="30" width="13" height="9" fill="rgba(66,214,255,.18)"/>
+  <rect x="104" y="30" width="13" height="9" fill="rgba(255,200,102,.22)"/>
+  <rect x="132" y="30" width="13" height="9" fill="rgba(66,214,255,.18)"/>
+  <rect x="160" y="30" width="13" height="9" fill="rgba(255,200,102,.22)"/>
+  <rect x="48" y="48" width="13" height="9" fill="rgba(66,214,255,.18)"/>
+  <rect x="76" y="48" width="13" height="9" fill="rgba(255,200,102,.22)"/>
+  <rect x="160" y="48" width="13" height="9" fill="rgba(66,214,255,.18)"/>
+
+  <!-- Building 2 -->
+  <rect x="30" y="268" width="180" height="130" rx="8" fill="rgba(14,20,26,.97)"/>
+  <rect x="30" y="240" width="180" height="130" rx="8" fill="rgba(22,32,40,.98)" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+  <rect x="48" y="250" width="13" height="9" fill="rgba(255,200,102,.18)"/>
+  <rect x="76" y="250" width="13" height="9" fill="rgba(66,214,255,.14)"/>
+  <rect x="132" y="250" width="13" height="9" fill="rgba(255,200,102,.18)"/>
+  <rect x="160" y="272" width="13" height="9" fill="rgba(66,214,255,.14)"/>
+
+  <!-- Building 3 -->
+  <rect x="380" y="30" width="60" height="88" rx="8" fill="rgba(14,20,26,.97)"/>
+  <rect x="380" y="8" width="60" height="88" rx="8" fill="rgba(28,42,50,.98)" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+  <rect x="390" y="16" width="10" height="7" fill="rgba(255,200,102,.22)"/>
+  <rect x="408" y="16" width="10" height="7" fill="rgba(66,214,255,.18)"/>
+  <rect x="390" y="30" width="10" height="7" fill="rgba(66,214,255,.18)"/>
+
+  <!-- Building 4 -->
+  <rect x="600" y="30" width="170" height="88" rx="8" fill="rgba(14,20,26,.97)"/>
+  <rect x="600" y="8" width="170" height="88" rx="8" fill="rgba(24,36,44,.98)" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+  <rect x="614" y="18" width="13" height="9" fill="rgba(255,200,102,.20)"/>
+  <rect x="638" y="18" width="13" height="9" fill="rgba(66,214,255,.16)"/>
+  <rect x="662" y="18" width="13" height="9" fill="rgba(255,200,102,.20)"/>
+  <rect x="686" y="18" width="13" height="9" fill="rgba(66,214,255,.16)"/>
+  <rect x="614" y="36" width="13" height="9" fill="rgba(66,214,255,.16)"/>
+  <rect x="662" y="36" width="13" height="9" fill="rgba(255,200,102,.20)"/>
+
+  <!-- Building 5 -->
+  <rect x="600" y="282" width="170" height="118" rx="8" fill="rgba(14,20,26,.97)"/>
+  <rect x="600" y="258" width="170" height="118" rx="8" fill="rgba(20,30,38,.98)" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+  <rect x="614" y="266" width="13" height="9" fill="rgba(255,200,102,.18)"/>
+  <rect x="652" y="266" width="13" height="9" fill="rgba(66,214,255,.14)"/>
+  <rect x="690" y="266" width="13" height="9" fill="rgba(255,200,102,.18)"/>
+  <rect x="614" y="284" width="13" height="9" fill="rgba(66,214,255,.14)"/>
+
+  <!-- Player car (teal, center road) -->
+  <g filter="url(#glow)">
+    <!-- shadow -->
+    <ellipse cx="370" cy="185" rx="16" ry="24" fill="rgba(0,0,0,.28)"/>
+    <!-- body -->
+    <rect x="354" y="162" width="32" height="50" rx="8" fill="#9fdcff"/>
+    <!-- roof/window -->
+    <rect x="358" y="168" width="24" height="20" rx="4" fill="rgba(8,12,15,.88)"/>
+    <!-- headlights -->
+    <rect x="356" y="161" width="6" height="3" fill="rgba(255,244,194,.9)"/>
+    <rect x="372" y="161" width="6" height="3" fill="rgba(255,244,194,.9)"/>
+    <!-- taillights -->
+    <rect x="356" y="209" width="6" height="3" fill="rgba(255,70,80,.9)"/>
+    <rect x="372" y="209" width="6" height="3" fill="rgba(255,70,80,.9)"/>
+    <!-- player highlight -->
+    <rect x="350" y="158" width="40" height="58" rx="10" fill="none" stroke="rgba(27,216,195,.82)" stroke-width="2.5"/>
+  </g>
+
+  <!-- NPC car 1 -->
+  <g transform="translate(100,175)">
+    <ellipse cx="0" cy="14" rx="14" ry="22" fill="rgba(0,0,0,.22)"/>
+    <rect x="-13" y="-22" width="26" height="46" rx="7" fill="#ffd86c"/>
+    <rect x="-10" y="-16" width="20" height="16" rx="3" fill="rgba(8,12,15,.82)"/>
+    <rect x="-11" y="-23" width="5" height="3" fill="rgba(255,244,194,.9)"/>
+    <rect x="6" y="-23" width="5" height="3" fill="rgba(255,244,194,.9)"/>
+  </g>
+
+  <!-- NPC car 2 -->
+  <g transform="translate(660,175) rotate(180)">
+    <ellipse cx="0" cy="14" rx="14" ry="22" fill="rgba(0,0,0,.22)"/>
+    <rect x="-13" y="-22" width="26" height="46" rx="7" fill="#ff7d8b"/>
+    <rect x="-10" y="-16" width="20" height="16" rx="3" fill="rgba(8,12,15,.82)"/>
+    <rect x="-11" y="-23" width="5" height="3" fill="rgba(255,70,80,.9)"/>
+    <rect x="6" y="-23" width="5" height="3" fill="rgba(255,70,80,.9)"/>
+  </g>
+
+  <!-- Police car -->
+  <g transform="translate(515,80) rotate(90)">
+    <ellipse cx="0" cy="14" rx="14" ry="22" fill="rgba(0,0,0,.22)"/>
+    <rect x="-13" y="-22" width="26" height="46" rx="7" fill="#89adff"/>
+    <rect x="-10" y="-16" width="20" height="16" rx="3" fill="rgba(8,12,15,.82)"/>
+    <rect x="-8" y="-3" width="16" height="5" rx="2" fill="#ff6e8b"/>
+    <rect x="-11" y="-23" width="5" height="3" fill="rgba(255,244,194,.9)"/>
+    <rect x="6" y="-23" width="5" height="3" fill="rgba(255,244,194,.9)"/>
+  </g>
+
+  <!-- Pedestrians -->
+  <g transform="translate(230,160)">
+    <ellipse cx="0" cy="8" rx="6" ry="3" fill="rgba(0,0,0,.18)"/>
+    <rect x="-3" y="-1" width="6" height="8" rx="2" fill="hsl(200,72%,62%)"/>
+    <circle cx="0" cy="-5" r="4" fill="hsl(28,48%,62%)"/>
+  </g>
+  <g transform="translate(295,330)">
+    <ellipse cx="0" cy="8" rx="6" ry="3" fill="rgba(0,0,0,.18)"/>
+    <rect x="-3" y="-1" width="6" height="8" rx="2" fill="hsl(334,72%,64%)"/>
+    <circle cx="0" cy="-5" r="4" fill="hsl(20,52%,58%)"/>
+  </g>
+
+  <!-- Mission marker -->
+  <g transform="translate(640,195)" filter="url(#softglow)">
+    <circle cx="0" cy="0" r="18" fill="none" stroke="#ffd36f" stroke-width="3" opacity="0.6"/>
+    <circle cx="0" cy="0" r="10" fill="none" stroke="#ffd36f" stroke-width="2.5" opacity="0.85"/>
+    <polygon points="0,-10 8,4 -8,4" fill="#ffd36f"/>
+  </g>
+
+  <!-- Rain streaks -->
+  <rect x="80" y="20" width="2" height="14" fill="rgba(120,180,255,.07)"/>
+  <rect x="200" y="60" width="2" height="14" fill="rgba(120,180,255,.06)"/>
+  <rect x="440" y="10" width="2" height="14" fill="rgba(120,180,255,.07)"/>
+  <rect x="560" y="80" width="2" height="14" fill="rgba(120,180,255,.06)"/>
+  <rect x="700" y="40" width="2" height="14" fill="rgba(120,180,255,.07)"/>
+  <rect x="320" y="360" width="2" height="14" fill="rgba(120,180,255,.06)"/>
+  <rect x="740" y="300" width="2" height="14" fill="rgba(120,180,255,.07)"/>
+
+  <!-- Vignette -->
+  <radialGradient id="vig" cx="50%" cy="50%" r="70%">
+    <stop offset="0%" stop-color="transparent"/>
+    <stop offset="100%" stop-color="rgba(0,0,0,.35)"/>
+  </radialGradient>
+  <rect width="800" height="420" fill="url(#vig)"/>
+
+  <!-- HUD overlay -->
+  <rect x="12" y="12" width="88" height="26" rx="13" fill="rgba(4,10,14,.88)" stroke="rgba(255,255,255,.09)" stroke-width="1"/>
+  <text x="22" y="29" font-family="monospace" font-size="12" fill="#9daeb9">💰 <tspan fill="#1bd8c3">$1,240</tspan></text>
+  <rect x="108" y="12" width="72" height="26" rx="13" fill="rgba(4,10,14,.88)" stroke="rgba(255,255,255,.09)" stroke-width="1"/>
+  <text x="118" y="29" font-family="monospace" font-size="12" fill="#9daeb9">⭐ <tspan fill="#1bd8c3">2★</tspan></text>
+  <rect x="188" y="12" width="90" height="26" rx="13" fill="rgba(4,10,14,.88)" stroke="rgba(255,255,255,.09)" stroke-width="1"/>
+  <text x="198" y="29" font-family="monospace" font-size="12" fill="#9daeb9">🚗 <tspan fill="#1bd8c3">Compact</tspan></text>
+
+  <!-- Play button overlay -->
+  <rect x="250" y="150" width="300" height="120" rx="18" fill="rgba(0,0,0,.62)"/>
+  <circle cx="400" cy="210" r="38" fill="rgba(27,216,195,.18)" stroke="#1bd8c3" stroke-width="2.5"/>
+  <polygon points="390,193 390,227 422,210" fill="#1bd8c3"/>
+  <text x="400" y="275" font-family="sans-serif" font-size="15" fill="rgba(255,255,255,.82)" text-anchor="middle">Click to Play Full Screen</text>
+
+  <!-- Title -->
+  <text x="400" y="400" font-family="sans-serif" font-size="13" fill="rgba(255,255,255,.28)" text-anchor="middle" letter-spacing="2">NEON DISTRICT DRIVER • HTML5 • Open World</text>
+</svg>
