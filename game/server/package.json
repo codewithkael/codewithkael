@@ -1,0 +1,21 @@
+{
+  "name": "neon-district-driver-server",
+  "version": "1.0.0",
+  "description": "Multiplayer leaderboard server for Neon District Driver",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "socket.io": "^4.7.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
