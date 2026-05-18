@@ -37,15 +37,12 @@ button:not(.primary):hover{background:rgba(255,255,255,.07)}
 #ammoHud b{color:#ffd86c}
 #clockHud{position:fixed;top:12px;left:50%;transform:translateX(-50%);background:rgba(4,10,18,.88);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:5px 16px;font-size:12px;z-index:10;color:#b0ccdc;white-space:nowrap;backdrop-filter:blur(4px)}
 #clockHud b{color:#ffd36f}
-/* Leaderboard HUD */
 #leaderHud{position:fixed;top:80px;right:14px;background:rgba(4,10,18,.92);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:8px 12px;font-size:11px;max-width:190px;max-height:240px;overflow:auto;z-index:10;backdrop-filter:blur(4px)}
 #leaderHud b{color:#1bd8c3;display:block;margin-bottom:4px;font-size:12px}
 .lr{padding:2px 0;color:#8fa8b8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .lr.me{color:#ffd36f}
-/* XP HUD */
 #xpHud{position:fixed;bottom:14px;left:260px;background:rgba(4,10,18,.9);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:6px 12px;font-size:12px;z-index:10;color:#8fa8b8;backdrop-filter:blur(4px)}
 #xpHud b{color:#a78bfa}
-/* Username input */
 #unameWrap{margin-bottom:1rem}
 #unameInput{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);border-radius:999px;color:#ecf3f7;font:inherit;padding:9px 20px;font-size:.92rem;width:220px;text-align:center;outline:none}
 #unameInput:focus{border-color:#1bd8c3}
@@ -79,7 +76,7 @@ button:not(.primary):hover{background:rgba(255,255,255,.07)}
     <p>Open-world city — steal cars, run missions, evade police.<br>Beach barrier active. Vehicles &amp; pickups respawn.</p>
     <div id="unameWrap">
       <input id="unameInput" type="text" maxlength="24" placeholder="Enter your username" autocomplete="off"/>
-      <div id="onlineStatus">&#x1F310; Connecting to server…</div>
+      <div id="onlineStatus">&#x1F310; Connecting to server&#x2026;</div>
     </div>
     <div class="btns">
       <button class="primary" id="startBtn">&#x25B6; Story Mode</button>
@@ -105,7 +102,6 @@ button:not(.primary):hover{background:rgba(255,255,255,.07)}
     </div>
   </div>
 </div>
-<!-- Socket.io client -->
 <script src="https://cdn.socket.io/4.7.5/socket.io.min.js" crossorigin="anonymous"></script>
 <script>
 (()=>{
@@ -119,22 +115,32 @@ const ui={cash:$('cashV'),heat:$('heatV'),car:$('carV'),dist:$('distV'),speed:$(
   xp:$('xpV'),leaderBody:$('leaderBody'),onlineStatus:$('onlineStatus')};
 
 // ── Multiplayer / Socket.io ──
-const SERVER_URL='https://neon-district-driver.onrender.com';
+const SERVER_URL='https://codewithkael.onrender.com';
 let socket=null,playerId=null,onlineUsername=null,localXp=0,leaderboard=[];
 
 function connectOnline(name){
   onlineUsername=String(name||'Driver').slice(0,24)||'Driver';
   ui.onlineStatus.textContent='⏳ Connecting…';
   try{
-    socket=io(SERVER_URL,{transports:['websocket'],reconnectionAttempts:5,timeout:6000});
+    // Use polling first so Render's cold-start HTTP wake-up fires, then upgrade to websocket
+    socket=io(SERVER_URL,{
+      transports:['polling','websocket'],
+      reconnectionAttempts:10,
+      reconnectionDelay:2000,
+      timeout:30000
+    });
     socket.on('connect',()=>{
       socket.emit('join',{username:onlineUsername});
       ui.onlineStatus.textContent='🟢 Online as '+onlineUsername;
     });
     socket.on('joined',p=>{playerId=p.id;});
     socket.on('leaderboard',data=>{leaderboard=data||[];renderLeaderboard();});
-    socket.on('connect_error',()=>{ui.onlineStatus.textContent='🔴 Server offline — playing offline';});
-    socket.on('disconnect',()=>{ui.onlineStatus.textContent='🔴 Disconnected';});
+    socket.on('connect_error',()=>{ui.onlineStatus.textContent='🔴 Server waking up… retrying';});
+    socket.on('disconnect',()=>{ui.onlineStatus.textContent='🔴 Disconnected — reconnecting';});
+    socket.on('reconnect',()=>{
+      socket.emit('join',{username:onlineUsername});
+      ui.onlineStatus.textContent='🟢 Reconnected as '+onlineUsername;
+    });
   }catch(e){ui.onlineStatus.textContent='🔴 Offline mode';}
 }
 
@@ -481,7 +487,6 @@ function dmgCar(car,amt){
     car.dst=true;const isP=(pl.car===car);
     if(isP){pl.inCar=false;pl.car=null;pl.hp=CL(pl.hp-20,0,100);}
     explode(car.x,car.y,isP);respawn(car);
-    // XP for destroying vehicles
     if(!isP){
       if(car.cop){awardXp(30);toast('💥 Police destroyed! +30 XP');}
       else{awardXp(15);toast('💥 Vehicle destroyed! +15 XP');}
@@ -598,7 +603,6 @@ function drawPerson(p,isPlayer){
   ctx.fillStyle=p.skin||'#c68642';ctx.beginPath();ctx.arc(0,-9,4.5,0,Math.PI*2);ctx.fill();
   ctx.fillStyle=p.hair||'#1a0f00';ctx.beginPath();ctx.arc(0,-10,4.5,Math.PI,2*Math.PI);ctx.fill();
   if(isPlayer){
-    // draw username above player
     ctx.globalAlpha=.9;ctx.font='bold 10px sans-serif';ctx.textAlign='center';ctx.textBaseline='bottom';
     ctx.fillStyle='#1bd8c3';ctx.fillText(onlineUsername||'You',-0,-20);
     ctx.globalAlpha=.7;ctx.strokeStyle='#1bd8c3';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(0,0,16,0,Math.PI*2);ctx.stroke();
@@ -749,7 +753,8 @@ $('freeBtn').onclick=()=>onStart(true);
 $('restartBtn').onclick=()=>startGame(st.free);
 $('roamBtn').onclick=()=>startGame(true);
 
-// Try connecting immediately so status shows on the card
+// Wake up the server early (Render cold-start)
+fetch(SERVER_URL+'/').catch(()=>{});
 connectOnline('');
 
 resize();
