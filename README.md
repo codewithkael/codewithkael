@@ -103,24 +103,6 @@
 
 ---
 
-<!-- Trophies -->
-### 🏆 GitHub Trophies
-
-<p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=codewithkael&theme=tokyonight&no-frame=true&row=1&column=6&margin-w=10" />
-</p>
-
----
-
-<!-- Featured Projects -->
-### 🎯 Featured Projects
-
-<p align="center">
-  <a href="https://parent-eye.com" target="_blank">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=codewithkael&repo=WebRTC-in-Andoird&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=06b6d4&icon_color=06b6d4" />
-  </a>
-</p>
-
 | 🎥 Project | 📝 Description | 🛠️ Tech |
 |:-----------|:--------------|:--------|
 | 👁️ [Parent-eye.com](https://parent-eye.com) | Real-time child monitoring platform | WebRTC, Android, Cloud |
